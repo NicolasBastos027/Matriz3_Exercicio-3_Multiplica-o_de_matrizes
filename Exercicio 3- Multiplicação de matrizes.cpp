@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -16,9 +15,9 @@ int main() {
         return 1;
     }
 
-    vector<vector<int>> matrizA(dim_l_a, vector<int>(dim_c_a));
-    vector<vector<int>> matrizB(dim_l_b, vector<int>(dim_c_b));
-    vector<vector<int>> matrizRes(dim_l_a, vector<int>(dim_c_b, 0)); // Inicializa com 0
+    int matrizA[dim_l_a][dim_c_a];
+    int matrizB[dim_l_b][dim_c_b];
+    int matrizRes[dim_l_a][dim_c_b];
 
     for (int i = 0; i < dim_l_a; i++) {
         for (int j = 0; j < dim_c_a; j++) {
@@ -28,7 +27,7 @@ int main() {
     }
 
     cout << "\n";
- 
+
     for (int i = 0; i < dim_l_b; i++) {
         for (int j = 0; j < dim_c_b; j++) {
             cout << "Informe o item da posição [" << i + 1 << "][" << j + 1 << "] da matriz B: ";
@@ -38,6 +37,7 @@ int main() {
 
     for (int i = 0; i < dim_l_a; i++) {
         for (int j = 0; j < dim_c_b; j++) {
+          matrizRes[i][j] = 0;
             for (int k = 0; k < dim_c_a; k++) {
                 matrizRes[i][j] += matrizA[i][k] * matrizB[k][j];
             }
